@@ -41,7 +41,7 @@ async function main(): Promise<void> {
   const { error } = await supabase.from("api_keys").insert({
     user_email: email,
     key_hash: keyHash,
-    key_prefix: fullKey.slice(0, 12),
+    key_prefix: fullKey.slice(0, 16),
     tier,
   });
 
