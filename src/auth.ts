@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import { getSupabase } from "./lib/supabase.js";
 import {
   type AuthOutcome,
   type ApiKeyRecord,
@@ -56,20 +56,7 @@ class AuthCache {
 
 // ── Auth Module ─────────────────────────────────────────────
 
-let supabase: SupabaseClient | null = null;
 const cache = new AuthCache();
-
-function getSupabase(): SupabaseClient {
-  if (!supabase) {
-    const url = process.env.SUPABASE_URL;
-    const key = process.env.SUPABASE_SERVICE_KEY;
-    if (!url || !key) {
-      throw new Error("SUPABASE_URL and SUPABASE_SERVICE_KEY must be set");
-    }
-    supabase = createClient(url, key);
-  }
-  return supabase;
-}
 
 function hashKey(apiKey: string): string {
   return createHash("sha256").update(apiKey).digest("hex");
@@ -77,7 +64,7 @@ function hashKey(apiKey: string): string {
 
 export async function validateApiKey(apiKey: string): Promise<AuthOutcome> {
   if (!apiKey) {
-    return { valid: false, reason: "API key is required. Get one at crunchy.tools" };
+    return { valid: false, reason: "API key is required. Get one at https://crunchy.tools" };
   }
 
   const keyHash = hashKey(apiKey);
@@ -98,7 +85,7 @@ export async function validateApiKey(apiKey: string): Promise<AuthOutcome> {
   if (error || !data) {
     const result: AuthOutcome = {
       valid: false,
-      reason: "Invalid API key. Get one at crunchy.tools",
+      reason: "Invalid API key. Get one at https://crunchy.tools",
     };
     cache.set(keyHash, result);
     return result;

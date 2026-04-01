@@ -70,7 +70,7 @@ export function createMcpServer(apiKey: string): Server {
         content: [
           {
             type: "text" as const,
-            text: `Free tier limit reached (${quota.currentUsage}/${quota.limit} calls this month). Upgrade at crunchy.tools/pricing`,
+            text: `Free tier limit reached (${quota.currentUsage}/${quota.limit} calls this month). Upgrade at https://crunchy.tools/pricing`,
           },
         ],
         isError: true,
