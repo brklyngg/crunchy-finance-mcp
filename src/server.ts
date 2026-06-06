@@ -22,7 +22,7 @@ export function registerTool(tool: ToolDefinition): void {
 
 export function createMcpServer(apiKey: string): Server {
   const server = new Server(
-    { name: "crunchy-finance-mcp", version: "0.1.0" },
+    { name: "crunchy-finance-mcp", version: "1.0.0" },
     { capabilities: { tools: {} } },
   );
 

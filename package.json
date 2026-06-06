@@ -1,7 +1,7 @@
 {
   "name": "crunchy-finance-mcp",
-  "version": "0.1.0",
-  "description": "MCP server for AI-powered financial analysis tools",
+  "version": "1.0.0",
+  "description": "MCP server for AI-powered financial analysis — variance analysis, cash flow forecasting, unit economics, investor metrics, and financial statements",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -15,6 +15,34 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"
   },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "finance",
+    "financial-analysis",
+    "cash-flow",
+    "unit-economics",
+    "variance-analysis",
+    "investor-metrics",
+    "saas-metrics",
+    "ai",
+    "claude",
+    "cursor"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crunchy-tools/crunchy-finance-mcp"
+  },
+  "homepage": "https://crunchy.tools",
+  "bugs": {
+    "url": "https://github.com/crunchy-tools/crunchy-finance-mcp/issues"
+  },
+  "author": "Crunchy Tools <support@crunchy.tools>",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "@anthropic-ai/sdk": "^0.52.0",
     "@modelcontextprotocol/sdk": "^1.12.0",
